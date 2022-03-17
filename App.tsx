@@ -24,6 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Routes from './src/navigation/Routes';
 
 const App: React.FC = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -35,9 +36,10 @@ const App: React.FC = () => {
   return (
     <>
       <StatusBar barStyle={'light-content'} />
-      <View style={{flex: 1, backgroundColor: 'tomato'}}>
+      <Routes />
+      {/* <View style={{flex: 1, backgroundColor: 'tomato'}}>
         <Text style={{backgroundColor: 'yellow', marginTop: 20}}>text</Text>
-      </View>
+      </View> */}
     </>
   );
 };
