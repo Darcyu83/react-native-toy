@@ -6,27 +6,15 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, Text, useColorScheme, View} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Routes from './src/navigation/Routes';
-import {Provider} from 'react-redux';
+import {Provider, useDispatch} from 'react-redux';
 import {store} from './src/redux/store';
+import {getUserList} from './src/redux/User/actions';
+import {ThemeProvider} from 'styled-components';
 
 const App: React.FC = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -37,7 +25,9 @@ const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <Routes />
+      <ThemeProvider theme={{textColor: {main: 'black'}}}>
+        <Routes />
+      </ThemeProvider>
     </Provider>
   );
 };
